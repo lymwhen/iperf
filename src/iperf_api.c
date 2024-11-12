@@ -1149,6 +1149,7 @@ iperf_parse_arguments(struct iperf_test *test, int argc, char **argv)
         {"idle-timeout", required_argument, NULL, OPT_IDLE_TIMEOUT},
         {"rcv-timeout", required_argument, NULL, OPT_RCV_TIMEOUT},
         {"snd-timeout", required_argument, NULL, OPT_SND_TIMEOUT},
+    {"tmp-template", required_argument, NULL, OPT_TMP_TAMPLATE},
         {"debug", optional_argument, NULL, 'd'},
         {"help", no_argument, NULL, 'h'},
         {NULL, 0, NULL, 0}
@@ -1647,6 +1648,9 @@ iperf_parse_arguments(struct iperf_test *test, int argc, char **argv)
 		test->settings->connect_timeout = unit_atoi(optarg);
 		client_flag = 1;
 		break;
+        case OPT_TMP_TAMPLATE:
+        iperf_set_test_template(test, optarg);
+        break;
 	    case 'h':
 		usage_long(stdout);
 		exit(0);

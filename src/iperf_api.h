@@ -102,6 +102,8 @@ typedef atomic_uint_fast64_t atomic_iperf_size_t;
 #define OPT_SND_TIMEOUT 29
 #define OPT_USE_PKCS1_PADDING 30
 
+#define OPT_TMP_TAMPLATE 40
+
 /* states */
 #define TEST_START 1
 #define TEST_RUNNING 2
