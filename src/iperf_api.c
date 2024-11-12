@@ -5136,6 +5136,7 @@ iperf_printf(struct iperf_test *test, const char* format, ...)
     if (test->role == 'c') {
 	if (ct) {
             r0 = fprintf(test->outfile, "%s", ct);
+            fflush(test->outfile);
             if (r0 < 0) {
                 r = r0;
                 goto bottom;
@@ -5144,6 +5145,7 @@ iperf_printf(struct iperf_test *test, const char* format, ...)
 	}
 	if (test->title) {
 	    r0 = fprintf(test->outfile, "%s:  ", test->title);
+        fflush(test->outfile);
             if (r0 < 0) {
                 r = r0;
                 goto bottom;
@@ -5153,6 +5155,7 @@ iperf_printf(struct iperf_test *test, const char* format, ...)
 	va_start(argp, format);
 	r0 = vfprintf(test->outfile, format, argp);
 	va_end(argp);
+    fflush(test->outfile);
         if (r0 < 0) {
             r = r0;
             goto bottom;
